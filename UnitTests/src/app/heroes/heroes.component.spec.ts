@@ -33,5 +33,27 @@ describe('HeroesComponent', () => {
             expect(component.heroes.length).toBe(2);
             expect(component.heroes).toEqual([HEROES[0], HEROES[1]]);
         })
+
+        it('should call the delete hero method', () => {
+            //interaction test between the component and service class
+            mockHeroService.deleteHero.and.returnValue(of(true));
+            component.heroes = HEROES;
+           
+
+            component.delete(HEROES[2]);
+
+            expect(mockHeroService.deleteHero).toHaveBeenCalled();
+            expect(mockHeroService.deleteHero).toHaveBeenCalledWith(HEROES[2]);
+        })
+
+        it('should return value from observable', () => {
+            //interaction test between the component and service class
+            mockHeroService.deleteHero.and.returnValue(of(HEROES[2]));
+            component.heroes = HEROES;
+           
+            mockHeroService.deleteHero(HEROES[2]).subscribe(value => {
+                expect(value).toEqual(HEROES[2]);;
+            })
+        })
     })
 })
