@@ -19,7 +19,7 @@ module.exports = function (config) {
       
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/PSAngularUnitTestingCourse'),
+      dir: require('path').join(__dirname, './coverage/angular-unittesting'),
       subdir: '.',
       reporters: [
         { type: 'html' },
@@ -29,8 +29,9 @@ module.exports = function (config) {
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
     autoWatch: true,
+    usePolling: true,
     browsers: ['Chrome'],
     singleRun: false
   });
