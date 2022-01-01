@@ -1,5 +1,6 @@
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
 import { HeroComponent } from "./hero.component";
 
 describe('HeroComponent (shallow tests)', () => {
@@ -34,6 +35,9 @@ describe('HeroComponent (shallow tests)', () => {
         //tell angular to implement the bindings
         //tells component to run change detection and update bindings
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('a').textContent).toContain('SuperDude');
+
+        //wrapper over the element, gives access to compoment, directives
+        expect(fixture.debugElement.query(By.css('a')).nativeElement.textContent).toContain('SuperDude');
+        //expect(fixture.nativeElement.querySelector('a').textContent).toContain('SuperDude');
     })
 })
