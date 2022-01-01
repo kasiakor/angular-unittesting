@@ -12,6 +12,7 @@ describe('HeroComponent (shallow tests)', () => {
         // it is like app.module but we only need the declatation property
         TestBed.configureTestingModule({
             declarations: [HeroComponent],
+            //Can't bind to 'routerLink' since it isn't a known property of 'a'.
             schemas: [NO_ERRORS_SCHEMA]   
         })
         //component fixture is a wrapper for hero component
