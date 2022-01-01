@@ -52,7 +52,7 @@ describe('HeroesComponent', () => {
             component.heroes = HEROES;
            
             mockHeroService.deleteHero(HEROES[2]).subscribe(value => {
-                expect(value).toEqual(HEROES[2]);;
+                expect(value).toEqual({id:3, name: 'SuperDude', strength:55});;
             })
         })
     })
